@@ -1,0 +1,300 @@
+/*================================================
+        ブレイクポイント
+================================================*/
+//min
+@mixin u-media-sm {
+  @media screen and (min-width:#{$v_sm}px) {
+    @content;
+  }
+}
+@mixin u-media-md {
+  @media screen and (min-width:#{$v_md}px) {
+    @content;
+  }
+}
+@mixin u-media-lg {
+  @media screen and (min-width:#{$v_lg}px) {
+    @content;
+  }
+}
+@mixin u-media-xl {
+  @media screen and (min-width:#{$v_xl}px) {
+    @content;
+  }
+}
+
+//max
+@mixin u-media-xlx {
+  @media screen and (max-width:#{$v_xlx}px) {
+    @content;
+  }
+}
+@mixin u-media-lgx {
+  @media screen and (max-width:#{$v_lgx}px) {
+    @content;
+  }
+}
+@mixin u-media-mdx {
+  @media screen and (max-width:#{$v_mdx}px) {
+    @content;
+  }
+}
+@mixin u-media-smx {
+  @media screen and (max-width:#{$v_smx}px) {
+    @content;
+  }
+}
+/*================================================
+        レスポンシブスタイルのmixin
+================================================*/
+//レスポンシブ対応　スタイル一つだけ
+//$bpはブレイクポイント smとかの文字列
+@mixin u_rsp($bp, $style, $value) {
+  @if ($bp == "sm") {
+    @include u-media-sm {
+      #{$style}: #{$value};
+    }
+  } @else if ($bp == "md") {
+
+    @include u-media-md {
+      #{$style}: #{$value};
+    }
+
+  } @else if ($bp == "lg") {
+
+    @include u-media-lg {
+      #{$style}: #{$value};
+    }
+
+  } @else if ($bp == "xl") {
+
+    @include u-media-xl {
+      #{$style}: #{$value};
+    }
+
+  } @else if ($bp == "smx") {
+
+    @include u-media-smx {
+      #{$style}: #{$value};
+    }
+
+  } @else if ($bp == "mdx") {
+
+    @include u-media-mdx {
+      #{$style}: #{$value};
+    }
+  } @else if ($bp == "lgx") {
+    @include u-media-lgx {
+      #{$style}: #{$value};
+    }
+  } @else if ($bp == "xlx") {
+    @include u-media-xlx {
+      #{$style}: #{$value};
+    }
+  } 
+}
+
+//レスポンシブ対応　スタイル複数　
+//$styles:(margin:10px, padding:20px, width:100px);という具合で渡すと使えます
+@mixin u_rsp_multi($bp, $styles) {
+
+  @if ($bp == "sm") {
+    @include u-media-sm {
+      @each $key, $value in $styles {
+        #{$key}: #{$value};
+      }
+    }
+  } @else if ($bp == "md") {
+
+    @include u-media-md {
+      @each $key, $value in $styles {
+        #{$key}: #{$value};
+      }
+    }
+
+  } @else if ($bp == "lg") {
+
+    @include u-media-lg {
+      @each $key, $value in $styles {
+        #{$key}: #{$value};
+      }
+    }
+
+  } @else if ($bp == "xl") {
+
+    @include u-media-xl {
+      @each $key, $value in $styles {
+        #{$key}: #{$value};
+      }
+    }
+
+  } @else if ($bp == "smx") {
+
+    @include u-media-smx {
+      @each $key, $value in $styles {
+        #{$key}: #{$value};
+      }
+    }
+
+  } @else if ($bp == "mdx") {
+
+    @include u-media-mdx {
+      @each $key, $value in $styles {
+        #{$key}: #{$value};
+      }
+    }
+  } @else if ($bp == "lgx") {
+    @include u-media-lgx {
+      @each $key, $value in $styles {
+        #{$key}: #{$value};
+      }
+    }
+  } @else if ($bp == "xlx") {
+    @include u-media-xlx {
+      @each $key, $value in $styles {
+        #{$key}: #{$value};
+      }
+    }
+  } 
+}
+
+@mixin u_rsp_multi__ch($bp, $styles) {
+  > * {
+    @if ($bp == "sm") {
+      @include u-media-sm {
+        @each $key, $value in $styles {
+          #{$key}: #{$value};
+        }
+      }
+    } @else if ($bp == "md") {
+
+      @include u-media-md {
+        @each $key, $value in $styles {
+          #{$key}: #{$value};
+        }
+      }
+
+    } @else if ($bp == "lg") {
+
+      @include u-media-lg {
+        @each $key, $value in $styles {
+          #{$key}: #{$value};
+        }
+      }
+
+    } @else if ($bp == "xl") {
+
+      @include u-media-xl {
+        @each $key, $value in $styles {
+          #{$key}: #{$value};
+        }
+      }
+
+    } @else if ($bp == "smx") {
+
+      @include u-media-smx {
+        @each $key, $value in $styles {
+          #{$key}: #{$value};
+        }
+      }
+
+    } @else if ($bp == "mdx") {
+
+      @include u-media-mdx {
+        @each $key, $value in $styles {
+          #{$key}: #{$value};
+        }
+      }
+    } @else if ($bp == "lgx") {
+      @include u-media-lgx {
+        @each $key, $value in $styles {
+          #{$key}: #{$value};
+        }
+      }
+    } @else if ($bp == "xlx") {
+      @include u-media-xlx {
+        @each $key, $value in $styles {
+          #{$key}: #{$value};
+        }
+      }
+    } 
+  }
+}
+@mixin u_rsp__ch($bp, $style, $value) {
+  > * {
+    @if ($bp == "sm") {
+      @include u-media-sm {
+        #{$style}: #{$value};
+      }
+    } @else if ($bp == "md") {
+
+      @include u-media-md {
+        #{$style}: #{$value};
+      }
+
+    } @else if ($bp == "lg") {
+
+      @include u-media-lg {
+        #{$style}: #{$value};
+      }
+
+    } @else if ($bp == "xl") {
+
+      @include u-media-xl {
+        #{$style}: #{$value};
+      }
+
+    } @else if ($bp == "smx") {
+
+      @include u-media-smx {
+        #{$style}: #{$value};
+      }
+
+    } @else if ($bp == "mdx") {
+
+      @include u-media-mdx {
+        #{$style}: #{$value};
+      }
+    } @else if ($bp == "lgx") {
+      @include u-media-lgx {
+        #{$style}: #{$value};
+      }
+    } @else if ($bp == "xlx") {
+      @include u-media-xlx {
+        #{$style}: #{$value};
+      }
+    }
+  } 
+}
+
+/*================================================
+      ブレイクポイントの基準でコンパイル順を変える
+================================================*/
+//ブレイクポイントの基準を判定
+//基準がmin⇒数値は昇順
+//基準がmax⇒数値は降順
+
+
+//ループカウンター、倍数, カウンター最大値)
+@function set_Prop_by_Bp_Std ($i, $unit_value, $max_roop) {
+  
+  //$v_bp_stdはブレイクポイントの基準
+  @if ($v_bp_std == "min") {
+    @return $i * $unit_value;
+
+  } @else if ($v_bp_std == "max") {
+    @return  ($max_roop * $i - $i * $unit_value);
+  }
+}
+
+//%を充てるスタイルに使う
+@function set_PerProp_by_Bp_Std ($i, $max_roop) {
+  
+  //$v_bp_stdはブレイクポイントの基準
+  @if ($v_bp_std == "min") {
+    @return $i;
+
+  } @else if ($v_bp_std == "max") {
+    @return  $max_roop / $i;
+  }
+}

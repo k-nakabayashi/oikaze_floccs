@@ -1,0 +1,22 @@
+/*============================================================
+                    クリアフィックス
+============================================================*/
+.u-clearfix {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.u-clearfix-after:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+@mixin u-clearfix {
+  &:after {
+  content: '';
+  display: block;
+  clear: both;
+  }
+}

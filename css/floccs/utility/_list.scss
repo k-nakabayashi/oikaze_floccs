@@ -1,0 +1,80 @@
+/*===========================================
+                    リスト関連
+===========================================*/
+/*リスト*/
+.u-list--dot {
+  > li {
+    text-indent: -1em;
+    margin-left: 1em;
+  }
+  > li:before {
+    content: "・";
+  }
+}
+.u-list--dot-large {
+  > li {
+    text-indent: -1.2em;
+    margin-left: 1.2em;
+    letter-spacing: 0;
+  }
+  
+  > li:before {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #333;
+    border-radius: 50%;
+    margin: 0 10px 2px 0;
+  }
+  
+  > li:not(:first-of-type) {
+    margin-top: 20px;
+  }
+}
+.u-list--asterisk {
+  > li {
+    text-indent: -1em;
+    margin-left: 1em;
+  }
+  
+  > li:before {
+    content: "※";
+  }
+}
+.u-list--asterisk-number {
+  > li {
+    counter-increment: number;
+    text-indent: -2.1em;
+    margin-left: 2.1em;
+  }
+  
+  > li:before {
+    content: "※" counter(number) "";
+    margin: 0 10px 0 0;
+  }
+}
+.u-list--number {
+  > li {
+    counter-increment: number;
+    text-indent: -2.1em;
+    margin-left: 2.1em;
+  }
+  
+  > li:before {
+    content: "(" counter(number) ")";
+    margin: 0 10px 0 0;
+  }
+  
+  > li:not(:first-of-type) {
+    margin-top: 5px;
+  }
+
+  .c-list--dot-large & {
+    margin: 5px 0 0 2em;
+  }
+
+  .c-list--dot-large & > li {
+    margin-left: 0.5em;
+  }  
+}

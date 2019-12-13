@@ -1,0 +1,12 @@
+@import "_general.scss";//クリアフィックスなど
+@import "_media.scss";//メディア
+
+@import "_area.scss";//padding, margin, width, height
+@import "_area-ch.scss";// 子要素 >* で当てる
+@import "_construction.scss";//グリッド、フロート、横並び
+@import "_centering.scss";//flexによるセンタリング
+@import "_list.scss";//liの左に※とか付ける
+@import "_img.scss";//imgの高さ・幅をラッパーに合わせる
+@import "_position.scss";//
+@import "_flex.scss";//
+@import "_text.scss";//
