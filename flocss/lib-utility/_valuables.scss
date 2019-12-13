@@ -15,9 +15,25 @@ $v_white:#fff;
 //maxなら↑の優先度が逆転する
 $v_bp_std: "min";
 
+//min ブレイクポイント
+//bootstrap準拠
+$v_sm: 576;
+$v_md: 768;
+$v_lg: 992;
+$v_xl: 1200;
+//max　ブレイクポイント
+$v_xlx: 1199;
+$v_lgx: 991;
+$v_mdx: 767;
+$v_smx: 575;
+
+//ブレイクポイント設定
+$v_bp_min_map: ("sm":$v_sm, "md": $v_md, "lg":$v_lg, "xl":$v_xl,);
+$v_bp_max_map: ("xlx":$v_xlx, "lgx":$v_lgx, "mdx":$v_mdx, "smx":$v_smx,);
+
 //コンパイル順序に関係
-$v_bp_min:"sm","md", "lg", "xl",;
-$v_bp_max:"xlx", "lgx", "mdx", "smx",;
+$v_bp_min: map-keys($v_bp_min_map);
+$v_bp_max: map-keys($v_bp_max_map);
 $v_media_list: "";
 @if ($v_bp_std == "min") {
   $v_media_list: join($v_bp_max, $v_bp_min);
@@ -26,19 +42,9 @@ $v_media_list: "";
   $v_media_list: join($v_bp_min, $v_bp_max);
 }
 
-//bootstrap準拠
-//min ブレイクポイント
-$v_sm: 576;
-$v_md: 768;
-$v_lg: 992;
-$v_xl: 1200;
 
-//max　ブレイクポイント
-//数値手打ち
-$v_xlx: 1199;
-$v_lgx: 991;
-$v_mdx: 767;
-$v_smx: 575;
+
+
 
 /*================================================
         areaユーティリティで使用

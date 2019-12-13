@@ -1,6 +1,22 @@
 /*================================================
         ブレイクポイント
 ================================================*/
+@mixin u-media-min($bp_p) {
+  @media screen and (min-width:#{$bp_p}px) {
+    @content;
+  }
+}
+@mixin u-media-max($bp_p) {
+  @media screen and (max-width:#{$bp_p}px) {
+    @content;
+  }
+}
+@mixin u-media($bp_p_min, $bp_p_min) {
+  @media screen and (min-width:#{$bp_p_maxn}px) and (max-width:#{$bp_p_min}px) {
+    @content;
+  }
+}
+
 //min
 @mixin u-media-sm {
   @media screen and (min-width:#{$v_sm}px) {
@@ -50,112 +66,43 @@
 //レスポンシブ対応　スタイル一つだけ
 //$bpはブレイクポイント smとかの文字列
 @mixin u_rsp($bp, $style, $value) {
-  @if ($bp == "sm") {
-    @include u-media-sm {
-      #{$style}: #{$value};
+  @each $bp_key in $v_bp_min {
+    @if ($bp == $bp_key) {
+      @media screen and (min-width:#{map-get($v_bp_min_map, $bp)}px) {
+        #{$style}: #{$value};
+      }
     }
-  } @else if ($bp == "md") {
-
-    @include u-media-md {
-      #{$style}: #{$value};
+  }
+  @each $bp_key in $v_bp_max {
+    @if ($bp == $bp_key) {
+      @media screen and (max-width:#{map-get($v_bp_max_map, $bp)}px) {
+        #{$style}: #{$value};
+      }
     }
-
-  } @else if ($bp == "lg") {
-
-    @include u-media-lg {
-      #{$style}: #{$value};
-    }
-
-  } @else if ($bp == "xl") {
-
-    @include u-media-xl {
-      #{$style}: #{$value};
-    }
-
-  } @else if ($bp == "smx") {
-
-    @include u-media-smx {
-      #{$style}: #{$value};
-    }
-
-  } @else if ($bp == "mdx") {
-
-    @include u-media-mdx {
-      #{$style}: #{$value};
-    }
-  } @else if ($bp == "lgx") {
-    @include u-media-lgx {
-      #{$style}: #{$value};
-    }
-  } @else if ($bp == "xlx") {
-    @include u-media-xlx {
-      #{$style}: #{$value};
-    }
-  } 
+  }
 }
-
 //レスポンシブ対応　スタイル複数　
 //$styles:(margin:10px, padding:20px, width:100px);という具合で渡すと使えます
 @mixin u_rsp_multi($bp, $styles) {
 
-  @if ($bp == "sm") {
-    @include u-media-sm {
-      @each $key, $value in $styles {
-        #{$key}: #{$value};
+  @each $bp_key in $v_bp_min {
+    @if ($bp == $bp_key) {
+      @media screen and (min-width:#{map-get($v_bp_min_map, $bp)}px) {
+        @each $key, $value in $styles {
+          #{$key}: #{$value};
+        }
       }
     }
-  } @else if ($bp == "md") {
-
-    @include u-media-md {
-      @each $key, $value in $styles {
-        #{$key}: #{$value};
+  }
+  @each $bp_key in $v_bp_max {
+    @if ($bp == $bp_key) {
+      @media screen and (max-width:#{map-get($v_bp_max_map, $bp)}px) {
+        @each $key, $value in $styles {
+          #{$key}: #{$value};
+        }
       }
     }
-
-  } @else if ($bp == "lg") {
-
-    @include u-media-lg {
-      @each $key, $value in $styles {
-        #{$key}: #{$value};
-      }
-    }
-
-  } @else if ($bp == "xl") {
-
-    @include u-media-xl {
-      @each $key, $value in $styles {
-        #{$key}: #{$value};
-      }
-    }
-
-  } @else if ($bp == "smx") {
-
-    @include u-media-smx {
-      @each $key, $value in $styles {
-        #{$key}: #{$value};
-      }
-    }
-
-  } @else if ($bp == "mdx") {
-
-    @include u-media-mdx {
-      @each $key, $value in $styles {
-        #{$key}: #{$value};
-      }
-    }
-  } @else if ($bp == "lgx") {
-    @include u-media-lgx {
-      @each $key, $value in $styles {
-        #{$key}: #{$value};
-      }
-    }
-  } @else if ($bp == "xlx") {
-    @include u-media-xlx {
-      @each $key, $value in $styles {
-        #{$key}: #{$value};
-      }
-    }
-  } 
+  }
 }
 
 @mixin u_rsp_multi__ch($bp, $styles) {
