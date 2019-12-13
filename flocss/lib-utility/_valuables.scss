@@ -34,17 +34,12 @@ $v_bp_max_map: ("xlx":$v_xlx, "lgx":$v_lgx, "mdx":$v_mdx, "smx":$v_smx,);
 //コンパイル順序に関係
 $v_bp_min: map-keys($v_bp_min_map);
 $v_bp_max: map-keys($v_bp_max_map);
-$v_media_list: "";
+$v_media_list: ();
 @if ($v_bp_std == "min") {
   $v_media_list: join($v_bp_max, $v_bp_min);
-
 } @else if ("max") {
   $v_media_list: join($v_bp_min, $v_bp_max);
 }
-
-
-
-
 
 /*================================================
         areaユーティリティで使用
