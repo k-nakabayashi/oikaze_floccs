@@ -396,7 +396,6 @@
     $prop: set_Equal_PerProp_by_Bp_Std_and_Bp($value, 5, $bp);
     .u-ch-w#{$value}-#{$bp} {
       @include u_rsp_multi($bp, ("width":#{$prop + "%"}, "display":"inline-block"));
-      @debug u-ch-w#{$value}-#{$bp};
     }
     .u-ch-h#{$value}-#{$bp} {
       @include u_rsp_multi($bp, ("height":#{$prop + "%"}, "display":"inline-block"));

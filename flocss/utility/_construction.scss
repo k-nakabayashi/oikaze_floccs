@@ -10,26 +10,20 @@
 
 
 //グリッドレイアウト
-//.u-grid > .u-row > .u-col-2という具合で使う
-.u-grid {
-  padding-right: 10px;
-  padding-left: 10px;
-  margin-left: auto;
-  margin-right: auto;
-}
+//.u-container > .u-row > .u-col-2という具合で使う
+
 .u-row {
-  -webkit-display: flex;
-  -ms-display: flex;
+  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  //両端を揃えるため
-  margin-left: -10px;
-  margin-right: -10px;
+  margin-right: -15px;
+  margin-left: -15px;
   > * {
-    padding-left: 10px;
-    padding-right: 10px;
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
   }
 }
 @for $i from 1 through 12 {
@@ -37,7 +31,7 @@
     @include u_col($i);
   }
   @each $bp in $v_media_list {
-    .u-col-#{$bp} {
+    .u-col-#{$i}-#{$bp} {
     @if ($bp == "sm") {
       @include u-media-sm {
         @include u_col($i);

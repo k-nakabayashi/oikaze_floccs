@@ -11,8 +11,8 @@
     @content;
   }
 }
-@mixin u-media($bp_p_min, $bp_p_min) {
-  @media screen and (min-width:#{$bp_p_maxn}px) and (max-width:#{$bp_p_min}px) {
+@mixin u-media($bp_p_min, $bp_p_max) {
+  @media screen and (min-width:#{$bp_p_min}px) and (max-width:#{$bp_p_max}px) {
     @content;
   }
 }
